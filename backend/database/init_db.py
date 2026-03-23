@@ -5,10 +5,10 @@ import random
 
 # Конфигурация подключения
 DB_CONFIG = {
-    'host': 'localhost',
+    'host': 'sql_trainer_db',
     'database': 'medical_trainer',
     'user': 'postgres',
-    'password': 'G7NYGRwn{dNM',
+    'password': 'postgres',
     'port': 5432
 }
 
