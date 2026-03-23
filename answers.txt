@@ -1,0 +1,377 @@
+ОТВЕТЫ НА ЗАДАЧИ SQL ТРЕНАЖЕРА
+================================
+
+РАЗДЕЛ 1: SELECT И БАЗОВАЯ ФИЛЬТРАЦИЯ (задачи 101-130)
+----------------------------------------------------
+
+Задача 101: Все пациенты
+SELECT * FROM patients;
+
+Задача 102: Только имена и фамилии
+SELECT first_name, last_name FROM patients;
+
+Задача 103: Пациенты мужского пола
+SELECT * FROM patients WHERE gender = 'Male';
+
+Задача 104: Пациенты женского пола
+SELECT * FROM patients WHERE gender = 'Female';
+
+Задача 105: Пациенты после 1980
+SELECT * FROM patients WHERE birth_date > '1980-01-01';
+
+Задача 106: Пациенты до 1970
+SELECT * FROM patients WHERE birth_date < '1970-01-01';
+
+Задача 107: Врачи-кардиологи
+SELECT * FROM doctors WHERE specialization = 'Кардиолог';
+
+Задача 108: Врачи-терапевты
+SELECT * FROM doctors WHERE specialization = 'Терапевт';
+
+Задача 109: Пациенты с группой крови A+
+SELECT * FROM patients WHERE blood_type = 'A+';
+
+Задача 110: Пациенты с указанным email
+SELECT * FROM patients WHERE email IS NOT NULL;
+
+Задача 111: Пациенты без телефона
+SELECT * FROM patients WHERE phone IS NULL;
+
+Задача 112: AND условие
+SELECT * FROM patients WHERE gender = 'Male' AND blood_type = 'O+';
+
+Задача 113: OR условие
+SELECT * FROM doctors WHERE specialization = 'Кардиолог' OR specialization = 'Хирург';
+
+Задача 114: IN оператор
+SELECT * FROM patients WHERE blood_type IN ('A+', 'B+', 'AB+');
+
+Задача 115: BETWEEN оператор
+SELECT * FROM patients WHERE birth_date BETWEEN '1970-01-01' AND '1989-12-31';
+
+Задача 116: LIKE поиск (начало)
+SELECT * FROM patients WHERE last_name LIKE 'С%';
+
+Задача 117: LIKE поиск (конец)
+SELECT * FROM patients WHERE last_name LIKE '%ва';
+
+Задача 118: LIKE поиск (содержит)
+SELECT * FROM doctors WHERE specialization LIKE '%лог%';
+
+Задача 119: ORDER BY (возрастание)
+SELECT * FROM patients ORDER BY birth_date;
+
+Задача 120: ORDER BY (убывание)
+SELECT * FROM patients ORDER BY birth_date DESC;
+
+Задача 121: LIMIT
+SELECT * FROM patients ORDER BY birth_date DESC LIMIT 3;
+
+Задача 122: DISTINCT
+SELECT DISTINCT specialization FROM doctors;
+
+Задача 123: DISTINCT с COUNT
+SELECT COUNT(DISTINCT specialization) as unique_specializations FROM doctors;
+
+Задача 124: NOT условие
+SELECT * FROM patients WHERE blood_type != 'A+' OR blood_type IS NULL;
+
+Задача 125: Комбинация условий
+SELECT * FROM patients WHERE birth_date < '1980-01-01' AND blood_type IN ('A+', 'A-');
+
+Задача 126: Поиск по email домену
+SELECT * FROM patients WHERE email LIKE '%@hospital.ru';
+
+Задача 127: Фильтрация по длине строки
+SELECT * FROM patients WHERE LENGTH(last_name) > 7;
+
+Задача 128: Сортировка по нескольким полям
+SELECT * FROM doctors ORDER BY specialization, hire_date;
+
+Задача 129: OFFSET
+SELECT * FROM patients ORDER BY patient_id LIMIT 5 OFFSET 5;
+
+Задача 130: Составное условие
+SELECT * FROM doctors WHERE hire_date > '2015-12-31' AND specialization != 'Кардиолог';
+
+
+РАЗДЕЛ 2: JOIN И СВЯЗИ МЕЖДУ ТАБЛИЦАМИ (задачи 201-230)
+-------------------------------------------------------
+
+Задача 201: Простой INNER JOIN
+SELECT v.visit_id, v.visit_date, p.first_name, p.last_name FROM visits v JOIN patients p ON v.patient_id = p.patient_id;
+
+Задача 202: JOIN двух таблиц
+SELECT v.visit_id, v.visit_date, d.first_name, d.last_name, d.specialization FROM visits v JOIN doctors d ON v.doctor_id = d.doctor_id;
+
+Задача 203: JOIN трех таблиц
+SELECT v.visit_id, v.visit_date, p.first_name as patient_name, d.first_name as doctor_name FROM visits v JOIN patients p ON v.patient_id = p.patient_id JOIN doctors d ON v.doctor_id = d.doctor_id;
+
+Задача 204: JOIN с отделениями
+SELECT v.visit_id, v.visit_date, dep.dept_name FROM visits v JOIN departments dep ON v.dept_id = dep.dept_id;
+
+Задача 205: Полная информация о посещениях
+SELECT v.visit_id, v.visit_date, p.first_name as patient, d.first_name as doctor, dep.dept_name FROM visits v JOIN patients p ON v.patient_id = p.patient_id JOIN doctors d ON v.doctor_id = d.doctor_id JOIN departments dep ON v.dept_id = dep.dept_id;
+
+Задача 206: LEFT JOIN
+SELECT p.patient_id, p.first_name, p.last_name, v.visit_id, v.visit_date FROM patients p LEFT JOIN visits v ON p.patient_id = v.patient_id;
+
+Задача 207: RIGHT JOIN
+SELECT v.visit_id, v.visit_date, d.first_name, d.last_name FROM visits v RIGHT JOIN doctors d ON v.doctor_id = d.doctor_id;
+
+Задача 208: Пациенты без посещений
+SELECT p.patient_id, p.first_name, p.last_name FROM patients p LEFT JOIN visits v ON p.patient_id = v.patient_id WHERE v.visit_id IS NULL;
+
+Задача 209: Врачи без приемов
+SELECT d.doctor_id, d.first_name, d.last_name FROM doctors d LEFT JOIN visits v ON d.doctor_id = v.doctor_id WHERE v.visit_id IS NULL;
+
+Задача 210: Отделения без посещений
+SELECT dep.dept_id, dep.dept_name FROM departments dep LEFT JOIN visits v ON dep.dept_id = v.dept_id WHERE v.visit_id IS NULL;
+
+Задача 211: JOIN с фильтрацией
+SELECT v.visit_id, v.visit_date, p.first_name, p.last_name FROM visits v JOIN patients p ON v.patient_id = p.patient_id WHERE p.blood_type = 'A+';
+
+Задача 212: Посещения кардиологов
+SELECT v.visit_id, v.visit_date, p.first_name, p.last_name FROM visits v JOIN doctors d ON v.doctor_id = d.doctor_id JOIN patients p ON v.patient_id = p.patient_id WHERE d.specialization = 'Кардиолог';
+
+Задача 213: Пациенты и их лекарства
+SELECT p.first_name, p.last_name, m.med_name, pr.dosage FROM patients p JOIN visits v ON p.patient_id = v.patient_id JOIN prescriptions pr ON v.visit_id = pr.visit_id JOIN medications m ON pr.med_id = m.med_id;
+
+Задача 214: Медицинские показатели
+SELECT p.first_name, p.last_name, vt.temperature, vt.recorded_at FROM vitals vt JOIN visits v ON vt.visit_id = v.visit_id JOIN patients p ON v.patient_id = p.patient_id;
+
+Задача 215: Врачи и отделения
+SELECT DISTINCT d.first_name, d.last_name, dep.dept_name FROM doctors d JOIN visits v ON d.doctor_id = v.doctor_id JOIN departments dep ON v.dept_id = dep.dept_id;
+
+Задача 216: Количество посещений по врачам
+SELECT d.first_name, d.last_name, COUNT(v.visit_id) as visits_count FROM doctors d LEFT JOIN visits v ON d.doctor_id = v.doctor_id GROUP BY d.doctor_id, d.first_name, d.last_name;
+
+Задача 217: Количество пациентов по врачам
+SELECT d.first_name, d.last_name, COUNT(DISTINCT v.patient_id) as patients_count FROM doctors d LEFT JOIN visits v ON d.doctor_id = v.doctor_id GROUP BY d.doctor_id, d.first_name, d.last_name;
+
+Задача 218: Лекарства без назначений
+SELECT m.med_id, m.med_name FROM medications m LEFT JOIN prescriptions p ON m.med_id = p.med_id WHERE p.prescription_id IS NULL;
+
+Задача 219: JOIN с агрегацией
+SELECT dep.dept_name, COUNT(v.visit_id) as visits_count FROM departments dep LEFT JOIN visits v ON dep.dept_id = v.dept_id GROUP BY dep.dept_id, dep.dept_name;
+
+Задача 220: Средняя температура по врачам
+SELECT d.first_name, d.last_name, ROUND(AVG(vt.temperature), 2) as avg_temperature FROM doctors d JOIN visits v ON d.doctor_id = v.doctor_id JOIN vitals vt ON v.visit_id = vt.visit_id GROUP BY d.doctor_id, d.first_name, d.last_name;
+
+Задача 221: Сложный JOIN (4 таблицы)
+SELECT p.first_name as patient, d.first_name as doctor, m.med_name, pr.dosage FROM prescriptions pr JOIN visits v ON pr.visit_id = v.visit_id JOIN patients p ON v.patient_id = p.patient_id JOIN doctors d ON v.doctor_id = d.doctor_id JOIN medications m ON pr.med_id = m.med_id;
+
+Задача 222: Пациенты с несколькими посещениями
+SELECT p.patient_id, p.first_name, p.last_name, COUNT(v.visit_id) as visits_count FROM patients p JOIN visits v ON p.patient_id = v.patient_id GROUP BY p.patient_id, p.first_name, p.last_name HAVING COUNT(v.visit_id) > 2;
+
+Задача 223: Посещения за последний месяц
+SELECT p.first_name, p.last_name, v.visit_date, d.first_name as doctor FROM visits v JOIN patients p ON v.patient_id = p.patient_id JOIN doctors d ON v.doctor_id = d.doctor_id WHERE v.visit_date >= CURRENT_DATE - INTERVAL '30 days';
+
+Задача 224: Самые популярные лекарства
+SELECT m.med_name, COUNT(pr.prescription_id) as prescription_count FROM medications m LEFT JOIN prescriptions pr ON m.med_id = pr.med_id GROUP BY m.med_id, m.med_name ORDER BY prescription_count DESC LIMIT 3;
+
+Задача 225: Пациенты с повышенной температурой
+SELECT p.first_name, p.last_name, vt.temperature, v.visit_date FROM patients p JOIN visits v ON p.patient_id = v.patient_id JOIN vitals vt ON v.visit_id = vt.visit_id WHERE vt.temperature > 38.0;
+
+Задача 226: Статистика по этажам
+SELECT dep.floor, COUNT(v.visit_id) as visits_count FROM departments dep LEFT JOIN visits v ON dep.dept_id = v.dept_id GROUP BY dep.floor ORDER BY dep.floor;
+
+Задача 227: Врачи и их пациенты
+SELECT d.first_name as doctor, p.first_name as patient FROM doctors d JOIN visits v ON d.doctor_id = v.doctor_id JOIN patients p ON v.patient_id = p.patient_id GROUP BY d.doctor_id, p.patient_id, d.first_name, p.first_name;
+
+Задача 228: Средняя длительность лечения
+SELECT m.med_name, ROUND(AVG(pr.duration_days), 1) as avg_duration FROM medications m LEFT JOIN prescriptions pr ON m.med_id = pr.med_id GROUP BY m.med_id, m.med_name;
+
+Задача 229: Посещения с показателями
+SELECT v.visit_id, v.visit_date, p.first_name, p.last_name, vt.temperature FROM visits v JOIN patients p ON v.patient_id = p.patient_id JOIN vitals vt ON v.visit_id = vt.visit_id;
+
+Задача 230: Анализ по полу и врачам
+SELECT d.first_name, d.last_name, COUNT(CASE WHEN p.gender = 'Male' THEN 1 END) as male_patients, COUNT(CASE WHEN p.gender = 'Female' THEN 1 END) as female_patients FROM doctors d LEFT JOIN visits v ON d.doctor_id = v.doctor_id LEFT JOIN patients p ON v.patient_id = p.patient_id GROUP BY d.doctor_id, d.first_name, d.last_name;
+
+
+РАЗДЕЛ 3: АГРЕГАЦИЯ И GROUP BY (задачи 301-330)
+-----------------------------------------------
+
+Задача 301: Общее количество пациентов
+SELECT COUNT(*) as total_patients FROM patients;
+
+Задача 302: Количество врачей
+SELECT COUNT(*) as total_doctors FROM doctors;
+
+Задача 303: Количество посещений
+SELECT COUNT(*) as total_visits FROM visits;
+
+Задача 304: Количество отделений
+SELECT COUNT(*) as total_departments FROM departments;
+
+Задача 305: Количество лекарств
+SELECT COUNT(*) as total_medications FROM medications;
+
+Задача 306: Количество кардиологов
+SELECT COUNT(*) as cardiologists FROM doctors WHERE specialization = 'Кардиолог';
+
+Задача 307: Пациенты с группой крови A+
+SELECT COUNT(*) as a_positive FROM patients WHERE blood_type = 'A+';
+
+Задача 308: Уникальные специализации
+SELECT COUNT(DISTINCT specialization) as unique_specializations FROM doctors;
+
+Задача 309: Средний возраст пациентов
+SELECT ROUND(AVG(EXTRACT(YEAR FROM age(birth_date))), 1) as avg_age FROM patients;
+
+Задача 310: Самый молодой пациент
+SELECT MAX(birth_date) as youngest FROM patients;
+
+Задача 311: Самый старший пациент
+SELECT MIN(birth_date) as oldest FROM patients;
+
+Задача 312: Средняя температура
+SELECT ROUND(AVG(temperature), 2) as avg_temperature FROM vitals;
+
+Задача 313: Максимальная температура
+SELECT MAX(temperature) as max_temperature FROM vitals;
+
+Задача 314: Средний пульс
+SELECT ROUND(AVG(heart_rate), 1) as avg_heart_rate FROM vitals;
+
+Задача 315: Общая стоимость лекарств
+SELECT SUM(price) as total_cost FROM medications;
+
+Задача 316: Средняя цена лекарств
+SELECT ROUND(AVG(price), 2) as avg_price FROM medications;
+
+Задача 317: Самое дорогое лекарство
+SELECT MAX(price) as max_price FROM medications;
+
+Задача 318: GROUP BY по полу
+SELECT gender, COUNT(*) as count FROM patients GROUP BY gender;
+
+Задача 319: GROUP BY по группе крови
+SELECT blood_type, COUNT(*) as count FROM patients GROUP BY blood_type;
+
+Задача 320: GROUP BY по специализации
+SELECT specialization, COUNT(*) as count FROM doctors GROUP BY specialization;
+
+Задача 321: GROUP BY с сортировкой
+SELECT specialization, COUNT(*) as count FROM doctors GROUP BY specialization ORDER BY count DESC;
+
+Задача 322: GROUP BY с HAVING
+SELECT blood_type, COUNT(*) as count FROM patients GROUP BY blood_type HAVING COUNT(*) > 2;
+
+Задача 323: Средний возраст по полу
+SELECT gender, ROUND(AVG(EXTRACT(YEAR FROM age(birth_date))), 1) as avg_age FROM patients GROUP BY gender;
+
+Задача 324: Статистика посещений по дням
+SELECT EXTRACT(DOW FROM visit_date) as day_of_week, COUNT(*) as visits_count FROM visits GROUP BY day_of_week ORDER BY day_of_week;
+
+Задача 325: Статистика посещений по месяцам
+SELECT EXTRACT(MONTH FROM visit_date) as month, COUNT(*) as visits_count FROM visits GROUP BY month ORDER BY month;
+
+Задача 326: Средняя температура по диагнозам
+SELECT v.diagnosis, ROUND(AVG(vt.temperature), 2) as avg_temperature, COUNT(*) as cases FROM visits v JOIN vitals vt ON v.visit_id = vt.visit_id GROUP BY v.diagnosis;
+
+Задача 327: Количество посещений по врачам
+SELECT d.doctor_id, d.first_name, d.last_name, COUNT(v.visit_id) as visits_count FROM doctors d LEFT JOIN visits v ON d.doctor_id = v.doctor_id GROUP BY d.doctor_id, d.first_name, d.last_name ORDER BY visits_count DESC;
+
+Задача 328: Топ-3 самых загруженных врачей
+SELECT d.first_name, d.last_name, COUNT(v.visit_id) as visits_count FROM doctors d JOIN visits v ON d.doctor_id = v.doctor_id GROUP BY d.doctor_id, d.first_name, d.last_name ORDER BY visits_count DESC LIMIT 3;
+
+Задача 329: Статистика по отделениям
+SELECT dep.dept_name, COUNT(v.visit_id) as visits_count, COUNT(DISTINCT v.patient_id) as unique_patients FROM departments dep LEFT JOIN visits v ON dep.dept_id = v.dept_id GROUP BY dep.dept_id, dep.dept_name;
+
+Задача 330: Процентное соотношение
+SELECT blood_type, COUNT(*) as count, ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM patients), 2) as percentage FROM patients WHERE blood_type IS NOT NULL GROUP BY blood_type ORDER BY count DESC;
+
+
+РАЗДЕЛ 4: ПОДЗАПРОСЫ И ПРОДВИНУТЫЕ КОНСТРУКЦИИ (задачи 401-430)
+---------------------------------------------------------------
+
+Задача 401: Подзапрос в WHERE
+SELECT * FROM patients WHERE birth_date < (SELECT AVG(birth_date) FROM patients);
+
+Задача 402: Подзапрос с IN
+SELECT * FROM patients WHERE patient_id IN (SELECT DISTINCT patient_id FROM visits v JOIN vitals vt ON v.visit_id = vt.visit_id WHERE vt.temperature > 38.0);
+
+Задача 403: Подзапрос с EXISTS
+SELECT * FROM doctors d WHERE EXISTS (SELECT 1 FROM visits v JOIN vitals vt ON v.visit_id = vt.visit_id WHERE v.doctor_id = d.doctor_id AND vt.temperature > 39.0);
+
+Задача 404: Подзапрос в SELECT
+SELECT p.*, (SELECT COUNT(*) FROM visits v WHERE v.patient_id = p.patient_id) as visits_count FROM patients p;
+
+Задача 405: Подзапрос в FROM
+SELECT AVG(visits_count) as avg_visits FROM (SELECT doctor_id, COUNT(*) as visits_count FROM visits GROUP BY doctor_id) as doctor_visits;
+
+Задача 406: Коррелированный подзапрос
+SELECT p.patient_id, p.first_name, p.last_name, COUNT(v.visit_id) as patient_visits FROM patients p LEFT JOIN visits v ON p.patient_id = v.patient_id GROUP BY p.patient_id, p.first_name, p.last_name HAVING COUNT(v.visit_id) > (SELECT AVG(visits_count) FROM (SELECT COUNT(*) as visits_count FROM visits GROUP BY patient_id) as avg_visits);
+
+Задача 407: ANY оператор
+SELECT d.doctor_id, d.first_name, d.last_name, COUNT(v.visit_id) as visits_count FROM doctors d LEFT JOIN visits v ON d.doctor_id = v.doctor_id GROUP BY d.doctor_id, d.first_name, d.last_name HAVING COUNT(v.visit_id) > ANY (SELECT COUNT(v2.visit_id) FROM doctors d2 LEFT JOIN visits v2 ON d2.doctor_id = v2.doctor_id WHERE d2.specialization = 'Терапевт' GROUP BY d2.doctor_id);
+
+Задача 408: ALL оператор
+SELECT d.doctor_id, d.first_name, d.last_name, COUNT(v.visit_id) as visits_count FROM doctors d LEFT JOIN visits v ON d.doctor_id = v.doctor_id GROUP BY d.doctor_id, d.first_name, d.last_name HAVING COUNT(v.visit_id) > ALL (SELECT COUNT(v2.visit_id) FROM doctors d2 LEFT JOIN visits v2 ON d2.doctor_id = v2.doctor_id WHERE d2.specialization = 'Терапевт' GROUP BY d2.doctor_id);
+
+Задача 409: CTE простое
+WITH adult_patients AS (SELECT * FROM patients WHERE birth_date < '1980-01-01') SELECT * FROM adult_patients;
+
+Задача 410: CTE с агрегацией
+WITH doctor_visits AS (SELECT d.doctor_id, d.first_name, d.last_name, COUNT(v.visit_id) as visits_count FROM doctors d LEFT JOIN visits v ON d.doctor_id = v.doctor_id GROUP BY d.doctor_id, d.first_name, d.last_name) SELECT * FROM doctor_visits WHERE visits_count > (SELECT AVG(visits_count) FROM doctor_visits);
+
+Задача 411: Оконная функция ROW_NUMBER
+SELECT first_name, last_name, birth_date, ROW_NUMBER() OVER (ORDER BY birth_date) as age_rank FROM patients;
+
+Задача 412: Оконная функция RANK
+SELECT d.first_name, d.last_name, COUNT(v.visit_id) as visits_count, RANK() OVER (ORDER BY COUNT(v.visit_id) DESC) as rank FROM doctors d LEFT JOIN visits v ON d.doctor_id = v.doctor_id GROUP BY d.doctor_id, d.first_name, d.last_name;
+
+Задача 413: Оконная функция LAG
+SELECT patient_id, visit_date, LAG(visit_date) OVER (PARTITION BY patient_id ORDER BY visit_date) as previous_visit FROM visits;
+
+Задача 414: Оконная функция LEAD
+SELECT patient_id, visit_date, LEAD(visit_date) OVER (PARTITION BY patient_id ORDER BY visit_date) as next_visit FROM visits;
+
+Задача 415: UNION
+SELECT first_name, last_name, 'patient' as type FROM patients UNION SELECT first_name, last_name, 'doctor' as type FROM doctors;
+
+Задача 416: INTERSECT
+SELECT first_name FROM patients INTERSECT SELECT first_name FROM doctors;
+
+Задача 417: EXCEPT
+SELECT first_name FROM patients EXCEPT SELECT first_name FROM doctors;
+
+Задача 418: CASE в ORDER BY
+SELECT * FROM patients ORDER BY CASE WHEN gender = 'Male' THEN 1 ELSE 2 END, last_name;
+
+Задача 419: CASE в GROUP BY
+SELECT CASE WHEN EXTRACT(YEAR FROM age(birth_date)) < 18 THEN 'Дети' WHEN EXTRACT(YEAR FROM age(birth_date)) BETWEEN 18 AND 60 THEN 'Взрослые' ELSE 'Пожилые' END as age_category, COUNT(*) as count FROM patients GROUP BY age_category;
+
+Задача 420: COALESCE
+SELECT first_name, last_name, COALESCE(phone, 'Нет телефона') as phone FROM patients;
+
+Задача 421: NULLIF
+SELECT first_name, last_name, NULLIF(email, '') as email FROM patients;
+
+Задача 422: GREATEST и LEAST
+SELECT visit_id, GREATEST(temperature, heart_rate) as max_value, LEAST(temperature, heart_rate) as min_value FROM vitals;
+
+Задача 423: Форматирование дат
+SELECT visit_id, TO_CHAR(visit_date, 'DD.MM.YYYY') as formatted_date FROM visits;
+
+Задача 424: EXTRACT
+SELECT visit_id, EXTRACT(YEAR FROM visit_date) as year FROM visits;
+
+Задача 425: DATE_TRUNC
+SELECT visit_id, DATE_TRUNC('month', visit_date) as month_start FROM visits;
+
+Задача 426: AGE функция
+SELECT first_name, last_name, AGE(birth_date) as exact_age FROM patients;
+
+Задача 427: CUBE
+SELECT gender, blood_type, COUNT(*) as count FROM patients GROUP BY CUBE(gender, blood_type);
+
+Задача 428: ROLLUP
+SELECT EXTRACT(YEAR FROM visit_date) as year, EXTRACT(MONTH FROM visit_date) as month, COUNT(*) as visits FROM visits GROUP BY ROLLUP(year, month);
+
+Задача 429: Группировка с фильтрацией
+SELECT specialization, AVG(EXTRACT(YEAR FROM age(hire_date))) as avg_experience FROM doctors GROUP BY specialization HAVING AVG(EXTRACT(YEAR FROM age(hire_date))) > 5;
+
+Задача 430: Комбинированный запрос
+SELECT p.first_name, p.last_name, vt.temperature, d.first_name as doctor FROM patients p JOIN visits v ON p.patient_id = v.patient_id JOIN vitals vt ON v.visit_id = vt.visit_id JOIN doctors d ON v.doctor_id = d.doctor_id WHERE vt.temperature > (SELECT AVG(vt2.temperature) FROM visits v2 JOIN vitals vt2 ON v2.visit_id = vt2.visit_id WHERE v2.doctor_id = d.doctor_id);

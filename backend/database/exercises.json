@@ -1,0 +1,1082 @@
+[
+	{
+		"id": 101,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "Все пациенты",
+		"description": "Выведите список всех пациентов",
+		"solution": "SELECT * FROM patients;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 102,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "Только имена и фамилии",
+		"description": "Выведите только имена и фамилии пациентов",
+		"solution": "SELECT first_name, last_name FROM patients;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 103,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "Пациенты мужского пола",
+		"description": "Найдите всех пациентов мужского пола",
+		"solution": "SELECT * FROM patients WHERE gender = 'Male';",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 104,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "Пациенты женского пола",
+		"description": "Найдите всех пациентов женского пола",
+		"solution": "SELECT * FROM patients WHERE gender = 'Female';",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 105,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "Пациенты после 1980",
+		"description": "Найдите пациентов, родившихся после 1 января 1980 года",
+		"solution": "SELECT * FROM patients WHERE birth_date > '1980-01-01';",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 106,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "Пациенты до 1970",
+		"description": "Найдите пациентов, родившихся до 1 января 1970 года",
+		"solution": "SELECT * FROM patients WHERE birth_date < '1970-01-01';",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 107,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "Врачи-кардиологи",
+		"description": "Найдите всех врачей-кардиологов",
+		"solution": "SELECT * FROM doctors WHERE specialization = 'Кардиолог';",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 108,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "Врачи-терапевты",
+		"description": "Найдите всех врачей-терапевтов",
+		"solution": "SELECT * FROM doctors WHERE specialization = 'Терапевт';",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 109,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "Пациенты с группой крови A+",
+		"description": "Найдите всех пациентов с группой крови A+",
+		"solution": "SELECT * FROM patients WHERE blood_type = 'A+';",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 110,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "Пациенты с указанным email",
+		"description": "Найдите пациентов, у которых указан email",
+		"solution": "SELECT * FROM patients WHERE email IS NOT NULL;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 111,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "Пациенты без телефона",
+		"description": "Найдите пациентов, у которых не указан телефон",
+		"solution": "SELECT * FROM patients WHERE phone IS NULL;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 112,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "AND условие",
+		"description": "Найдите пациентов мужского пола с группой крови O+",
+		"solution": "SELECT * FROM patients WHERE gender = 'Male' AND blood_type = 'O+';",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 113,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "OR условие",
+		"description": "Найдите врачей-кардиологов или врачей-хирургов",
+		"solution": "SELECT * FROM doctors WHERE specialization = 'Кардиолог' OR specialization = 'Хирург';",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 114,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "IN оператор",
+		"description": "Найдите пациентов с группами крови A+, B+ или AB+",
+		"solution": "SELECT * FROM patients WHERE blood_type IN ('A+', 'B+', 'AB+');",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 115,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "BETWEEN оператор",
+		"description": "Найдите пациентов в возрасте от 30 до 50 лет (родившихся между 1970 и 1990)",
+		"solution": "SELECT * FROM patients WHERE birth_date BETWEEN '1970-01-01' AND '1989-12-31';",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 116,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "LIKE поиск (начало)",
+		"description": "Найдите пациентов, чья фамилия начинается на 'С'",
+		"solution": "SELECT * FROM patients WHERE last_name LIKE 'С%';",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 117,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "LIKE поиск (конец)",
+		"description": "Найдите пациентов, чья фамилия заканчивается на 'ва'",
+		"solution": "SELECT * FROM patients WHERE last_name LIKE '%ва';",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 118,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "LIKE поиск (содержит)",
+		"description": "Найдите врачей, в специализации которых есть слово 'лог'",
+		"solution": "SELECT * FROM doctors WHERE specialization LIKE '%лог%';",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 119,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "ORDER BY (возрастание)",
+		"description": "Выведите пациентов, отсортированных по дате рождения (от старших к младшим)",
+		"solution": "SELECT * FROM patients ORDER BY birth_date;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 120,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "ORDER BY (убывание)",
+		"description": "Выведите пациентов, отсортированных по дате рождения (от младших к старшим)",
+		"solution": "SELECT * FROM patients ORDER BY birth_date DESC;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 121,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "LIMIT",
+		"description": "Выведите только 3 самых молодых пациентов",
+		"solution": "SELECT * FROM patients ORDER BY birth_date DESC LIMIT 3;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 122,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "DISTINCT",
+		"description": "Выведите все уникальные специализации врачей",
+		"solution": "SELECT DISTINCT specialization FROM doctors;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 123,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "DISTINCT с COUNT",
+		"description": "Посчитайте количество уникальных специализаций врачей",
+		"solution": "SELECT COUNT(DISTINCT specialization) as unique_specializations FROM doctors;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 124,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "NOT условие",
+		"description": "Найдите всех пациентов, кроме имеющих группу крови A+",
+		"solution": "SELECT * FROM patients WHERE blood_type != 'A+' OR blood_type IS NULL;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 125,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "Комбинация условий",
+		"description": "Найдите пациентов старше 40 лет с группой крови A+ или A-",
+		"solution": "SELECT * FROM patients WHERE birth_date < '1980-01-01' AND blood_type IN ('A+', 'A-');",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 126,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "Поиск по email домену",
+		"description": "Найдите всех пациентов с email на домене hospital.ru",
+		"solution": "SELECT * FROM patients WHERE email LIKE '%@hospital.ru';",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 127,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "Фильтрация по длине строки",
+		"description": "Найдите пациентов с фамилией длиннее 7 символов",
+		"solution": "SELECT * FROM patients WHERE LENGTH(last_name) > 7;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 128,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "Сортировка по нескольким полям",
+		"description": "Выведите врачей, отсортированных по специализации и стажу",
+		"solution": "SELECT * FROM doctors ORDER BY specialization, hire_date;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 129,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "OFFSET",
+		"description": "Выведите пациентов с 6-го по 10-го (пропустите первых 5)",
+		"solution": "SELECT * FROM patients ORDER BY patient_id LIMIT 5 OFFSET 5;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 130,
+		"category": "select",
+		"category_name": "SELECT и базовая фильтрация",
+		"title": "Составное условие",
+		"description": "Найдите врачей, нанятых после 2015 года, кроме кардиологов",
+		"solution": "SELECT * FROM doctors WHERE hire_date > '2015-12-31' AND specialization != 'Кардиолог';",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 201,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "Простой INNER JOIN",
+		"description": "Выведите все посещения с именами пациентов",
+		"solution": "SELECT v.visit_id, v.visit_date, p.first_name, p.last_name FROM visits v JOIN patients p ON v.patient_id = p.patient_id;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 202,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "JOIN двух таблиц",
+		"description": "Выведите все посещения с именами врачей",
+		"solution": "SELECT v.visit_id, v.visit_date, d.first_name, d.last_name, d.specialization FROM visits v JOIN doctors d ON v.doctor_id = d.doctor_id;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 203,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "JOIN трех таблиц",
+		"description": "Выведите все посещения с именами пациентов и врачей",
+		"solution": "SELECT v.visit_id, v.visit_date, p.first_name as patient_name, d.first_name as doctor_name FROM visits v JOIN patients p ON v.patient_id = p.patient_id JOIN doctors d ON v.doctor_id = d.doctor_id;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 204,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "JOIN с отделениями",
+		"description": "Выведите все посещения с названиями отделений",
+		"solution": "SELECT v.visit_id, v.visit_date, dep.dept_name FROM visits v JOIN departments dep ON v.dept_id = dep.dept_id;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 205,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "Полная информация о посещениях",
+		"description": "Выведите все посещения с пациентами, врачами и отделениями",
+		"solution": "SELECT v.visit_id, v.visit_date, p.first_name as patient, d.first_name as doctor, dep.dept_name FROM visits v JOIN patients p ON v.patient_id = p.patient_id JOIN doctors d ON v.doctor_id = d.doctor_id JOIN departments dep ON v.dept_id = dep.dept_id;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 206,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "LEFT JOIN",
+		"description": "Выведите всех пациентов и их посещения (включая тех, у кого не было посещений)",
+		"solution": "SELECT p.patient_id, p.first_name, p.last_name, v.visit_id, v.visit_date FROM patients p LEFT JOIN visits v ON p.patient_id = v.patient_id;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 207,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "RIGHT JOIN",
+		"description": "Выведите все посещения и информацию о врачах",
+		"solution": "SELECT v.visit_id, v.visit_date, d.first_name, d.last_name FROM visits v RIGHT JOIN doctors d ON v.doctor_id = d.doctor_id;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 208,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "Пациенты без посещений",
+		"description": "Найдите пациентов, у которых не было посещений",
+		"solution": "SELECT p.patient_id, p.first_name, p.last_name FROM patients p LEFT JOIN visits v ON p.patient_id = v.patient_id WHERE v.visit_id IS NULL;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 209,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "Врачи без приемов",
+		"description": "Найдите врачей, у которых не было приемов",
+		"solution": "SELECT d.doctor_id, d.first_name, d.last_name FROM doctors d LEFT JOIN visits v ON d.doctor_id = v.doctor_id WHERE v.visit_id IS NULL;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 210,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "Отделения без посещений",
+		"description": "Найдите отделения, в которых не было посещений",
+		"solution": "SELECT dep.dept_id, dep.dept_name FROM departments dep LEFT JOIN visits v ON dep.dept_id = v.dept_id WHERE v.visit_id IS NULL;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 211,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "JOIN с фильтрацией",
+		"description": "Найдите посещения пациентов с группой крови A+",
+		"solution": "SELECT v.visit_id, v.visit_date, p.first_name, p.last_name FROM visits v JOIN patients p ON v.patient_id = p.patient_id WHERE p.blood_type = 'A+';",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 212,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "Посещения кардиологов",
+		"description": "Найдите все посещения врачей-кардиологов",
+		"solution": "SELECT v.visit_id, v.visit_date, p.first_name, p.last_name FROM visits v JOIN doctors d ON v.doctor_id = d.doctor_id JOIN patients p ON v.patient_id = p.patient_id WHERE d.specialization = 'Кардиолог';",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 213,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "Пациенты и их лекарства",
+		"description": "Выведите всех пациентов и назначенные им лекарства",
+		"solution": "SELECT p.first_name, p.last_name, m.med_name, pr.dosage FROM patients p JOIN visits v ON p.patient_id = v.patient_id JOIN prescriptions pr ON v.visit_id = pr.visit_id JOIN medications m ON pr.med_id = m.med_id;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 214,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "Медицинские показатели",
+		"description": "Выведите все измерения температуры с именами пациентов",
+		"solution": "SELECT p.first_name, p.last_name, vt.temperature, vt.recorded_at FROM vitals vt JOIN visits v ON vt.visit_id = v.visit_id JOIN patients p ON v.patient_id = p.patient_id;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 215,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "Врачи и отделения",
+		"description": "Выведите всех врачей и отделения, в которых они принимали",
+		"solution": "SELECT DISTINCT d.first_name, d.last_name, dep.dept_name FROM doctors d JOIN visits v ON d.doctor_id = v.doctor_id JOIN departments dep ON v.dept_id = dep.dept_id;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 216,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "Количество посещений по врачам",
+		"description": "Для каждого врача посчитайте количество посещений",
+		"solution": "SELECT d.first_name, d.last_name, COUNT(v.visit_id) as visits_count FROM doctors d LEFT JOIN visits v ON d.doctor_id = v.doctor_id GROUP BY d.doctor_id, d.first_name, d.last_name;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 217,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "Количество пациентов по врачам",
+		"description": "Для каждого врача посчитайте количество уникальных пациентов",
+		"solution": "SELECT d.first_name, d.last_name, COUNT(DISTINCT v.patient_id) as patients_count FROM doctors d LEFT JOIN visits v ON d.doctor_id = v.doctor_id GROUP BY d.doctor_id, d.first_name, d.last_name;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 218,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "Лекарства без назначений",
+		"description": "Найдите лекарства, которые ни разу не назначались",
+		"solution": "SELECT m.med_id, m.med_name FROM medications m LEFT JOIN prescriptions p ON m.med_id = p.med_id WHERE p.prescription_id IS NULL;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 219,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "JOIN с агрегацией",
+		"description": "Для каждого отделения выведите количество посещений",
+		"solution": "SELECT dep.dept_name, COUNT(v.visit_id) as visits_count FROM departments dep LEFT JOIN visits v ON dep.dept_id = v.dept_id GROUP BY dep.dept_id, dep.dept_name;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 220,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "Средняя температура по врачам",
+		"description": "Вычислите среднюю температуру пациентов для каждого врача",
+		"solution": "SELECT d.first_name, d.last_name, ROUND(AVG(vt.temperature), 2) as avg_temperature FROM doctors d JOIN visits v ON d.doctor_id = v.doctor_id JOIN vitals vt ON v.visit_id = vt.visit_id GROUP BY d.doctor_id, d.first_name, d.last_name;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 221,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "Сложный JOIN (4 таблицы)",
+		"description": "Выведите полную информацию о назначениях: пациент, врач, лекарство",
+		"solution": "SELECT p.first_name as patient, d.first_name as doctor, m.med_name, pr.dosage FROM prescriptions pr JOIN visits v ON pr.visit_id = v.visit_id JOIN patients p ON v.patient_id = p.patient_id JOIN doctors d ON v.doctor_id = d.doctor_id JOIN medications m ON pr.med_id = m.med_id;",
+		"difficulty": "advanced"
+	},
+	{
+		"id": 222,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "Пациенты с несколькими посещениями",
+		"description": "Найдите пациентов, у которых было более 2 посещений",
+		"solution": "SELECT p.patient_id, p.first_name, p.last_name, COUNT(v.visit_id) as visits_count FROM patients p JOIN visits v ON p.patient_id = v.patient_id GROUP BY p.patient_id, p.first_name, p.last_name HAVING COUNT(v.visit_id) > 2;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 223,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "Посещения за последний месяц",
+		"description": "Найдите все посещения за последние 30 дней с информацией о пациентах",
+		"solution": "SELECT p.first_name, p.last_name, v.visit_date, d.first_name as doctor FROM visits v JOIN patients p ON v.patient_id = p.patient_id JOIN doctors d ON v.doctor_id = d.doctor_id WHERE v.visit_date >= CURRENT_DATE - INTERVAL '30 days';",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 224,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "Самые популярные лекарства",
+		"description": "Выведите топ-3 самых часто назначаемых лекарств",
+		"solution": "SELECT m.med_name, COUNT(pr.prescription_id) as prescription_count FROM medications m LEFT JOIN prescriptions pr ON m.med_id = pr.med_id GROUP BY m.med_id, m.med_name ORDER BY prescription_count DESC LIMIT 3;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 225,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "Пациенты с повышенной температурой",
+		"description": "Найдите пациентов с температурой выше 38.0 градусов",
+		"solution": "SELECT p.first_name, p.last_name, vt.temperature, v.visit_date FROM patients p JOIN visits v ON p.patient_id = v.patient_id JOIN vitals vt ON v.visit_id = vt.visit_id WHERE vt.temperature > 38.0;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 226,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "Статистика по этажам",
+		"description": "Для каждого этажа посчитайте количество посещений",
+		"solution": "SELECT dep.floor, COUNT(v.visit_id) as visits_count FROM departments dep LEFT JOIN visits v ON dep.dept_id = v.dept_id GROUP BY dep.floor ORDER BY dep.floor;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 227,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "Врачи и их пациенты",
+		"description": "Для каждого врача выведите список уникальных пациентов",
+		"solution": "SELECT d.first_name as doctor, p.first_name as patient FROM doctors d JOIN visits v ON d.doctor_id = v.doctor_id JOIN patients p ON v.patient_id = p.patient_id GROUP BY d.doctor_id, p.patient_id, d.first_name, p.first_name;",
+		"difficulty": "advanced"
+	},
+	{
+		"id": 228,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "Средняя длительность лечения",
+		"description": "Для каждого лекарства найдите среднюю длительность назначения",
+		"solution": "SELECT m.med_name, ROUND(AVG(pr.duration_days), 1) as avg_duration FROM medications m LEFT JOIN prescriptions pr ON m.med_id = pr.med_id GROUP BY m.med_id, m.med_name;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 229,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "Посещения с показателями",
+		"description": "Выведите все посещения, для которых есть показатели vitals",
+		"solution": "SELECT v.visit_id, v.visit_date, p.first_name, p.last_name, vt.temperature FROM visits v JOIN patients p ON v.patient_id = p.patient_id JOIN vitals vt ON v.visit_id = vt.visit_id;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 230,
+		"category": "join",
+		"category_name": "JOIN и связи между таблицами",
+		"title": "Анализ по полу и врачам",
+		"description": "Для каждого врача посчитайте количество пациентов мужского и женского пола",
+		"solution": "SELECT d.first_name, d.last_name, COUNT(CASE WHEN p.gender = 'Male' THEN 1 END) as male_patients, COUNT(CASE WHEN p.gender = 'Female' THEN 1 END) as female_patients FROM doctors d LEFT JOIN visits v ON d.doctor_id = v.doctor_id LEFT JOIN patients p ON v.patient_id = p.patient_id GROUP BY d.doctor_id, d.first_name, d.last_name;",
+		"difficulty": "advanced"
+	},
+	{
+		"id": 301,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "Общее количество пациентов",
+		"description": "Посчитайте общее количество пациентов",
+		"solution": "SELECT COUNT(*) as total_patients FROM patients;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 302,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "Количество врачей",
+		"description": "Посчитайте общее количество врачей",
+		"solution": "SELECT COUNT(*) as total_doctors FROM doctors;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 303,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "Количество посещений",
+		"description": "Посчитайте общее количество посещений",
+		"solution": "SELECT COUNT(*) as total_visits FROM visits;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 304,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "Количество отделений",
+		"description": "Посчитайте количество отделений",
+		"solution": "SELECT COUNT(*) as total_departments FROM departments;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 305,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "Количество лекарств",
+		"description": "Посчитайте количество лекарств",
+		"solution": "SELECT COUNT(*) as total_medications FROM medications;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 306,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "Количество кардиологов",
+		"description": "Посчитайте количество врачей-кардиологов",
+		"solution": "SELECT COUNT(*) as cardiologists FROM doctors WHERE specialization = 'Кардиолог';",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 307,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "Пациенты с группой крови A+",
+		"description": "Посчитайте количество пациентов с группой крови A+",
+		"solution": "SELECT COUNT(*) as a_positive FROM patients WHERE blood_type = 'A+';",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 308,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "Уникальные специализации",
+		"description": "Посчитайте количество уникальных специализаций врачей",
+		"solution": "SELECT COUNT(DISTINCT specialization) as unique_specializations FROM doctors;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 309,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "Средний возраст пациентов",
+		"description": "Вычислите средний возраст пациентов",
+		"solution": "SELECT ROUND(AVG(EXTRACT(YEAR FROM age(birth_date))), 1) as avg_age FROM patients;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 310,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "Самый молодой пациент",
+		"description": "Найдите самого молодого пациента",
+		"solution": "SELECT MAX(birth_date) as youngest FROM patients;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 311,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "Самый старший пациент",
+		"description": "Найдите самого старшего пациента",
+		"solution": "SELECT MIN(birth_date) as oldest FROM patients;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 312,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "Средняя температура",
+		"description": "Вычислите среднюю температуру всех пациентов",
+		"solution": "SELECT ROUND(AVG(temperature), 2) as avg_temperature FROM vitals;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 313,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "Максимальная температура",
+		"description": "Найдите максимальную температуру",
+		"solution": "SELECT MAX(temperature) as max_temperature FROM vitals;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 314,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "Средний пульс",
+		"description": "Вычислите средний пульс пациентов",
+		"solution": "SELECT ROUND(AVG(heart_rate), 1) as avg_heart_rate FROM vitals;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 315,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "Общая стоимость лекарств",
+		"description": "Посчитайте общую стоимость всех лекарств",
+		"solution": "SELECT SUM(price) as total_cost FROM medications;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 316,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "Средняя цена лекарств",
+		"description": "Вычислите среднюю цену лекарств",
+		"solution": "SELECT ROUND(AVG(price), 2) as avg_price FROM medications;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 317,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "Самое дорогое лекарство",
+		"description": "Найдите самое дорогое лекарство",
+		"solution": "SELECT MAX(price) as max_price FROM medications;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 318,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "GROUP BY по полу",
+		"description": "Посчитайте количество пациентов по полу",
+		"solution": "SELECT gender, COUNT(*) as count FROM patients GROUP BY gender;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 319,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "GROUP BY по группе крови",
+		"description": "Посчитайте количество пациентов каждой группы крови",
+		"solution": "SELECT blood_type, COUNT(*) as count FROM patients GROUP BY blood_type;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 320,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "GROUP BY по специализации",
+		"description": "Посчитайте количество врачей каждой специализации",
+		"solution": "SELECT specialization, COUNT(*) as count FROM doctors GROUP BY specialization;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 321,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "GROUP BY с сортировкой",
+		"description": "Посчитайте количество врачей каждой специализации, отсортировав по убыванию",
+		"solution": "SELECT specialization, COUNT(*) as count FROM doctors GROUP BY specialization ORDER BY count DESC;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 322,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "GROUP BY с HAVING",
+		"description": "Найдите группы крови, которые встречаются более 2 раз",
+		"solution": "SELECT blood_type, COUNT(*) as count FROM patients GROUP BY blood_type HAVING COUNT(*) > 2;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 323,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "Средний возраст по полу",
+		"description": "Вычислите средний возраст отдельно для мужчин и женщин",
+		"solution": "SELECT gender, ROUND(AVG(EXTRACT(YEAR FROM age(birth_date))), 1) as avg_age FROM patients GROUP BY gender;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 324,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "Статистика посещений по дням",
+		"description": "Посчитайте количество посещений по дням недели",
+		"solution": "SELECT EXTRACT(DOW FROM visit_date) as day_of_week, COUNT(*) as visits_count FROM visits GROUP BY day_of_week ORDER BY day_of_week;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 325,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "Статистика посещений по месяцам",
+		"description": "Посчитайте количество посещений по месяцам",
+		"solution": "SELECT EXTRACT(MONTH FROM visit_date) as month, COUNT(*) as visits_count FROM visits GROUP BY month ORDER BY month;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 326,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "Средняя температура по диагнозам",
+		"description": "Для каждого диагноза вычислите среднюю температуру",
+		"solution": "SELECT v.diagnosis, ROUND(AVG(vt.temperature), 2) as avg_temperature, COUNT(*) as cases FROM visits v JOIN vitals vt ON v.visit_id = vt.visit_id GROUP BY v.diagnosis;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 327,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "Количество посещений по врачам",
+		"description": "Посчитайте количество посещений для каждого врача",
+		"solution": "SELECT d.doctor_id, d.first_name, d.last_name, COUNT(v.visit_id) as visits_count FROM doctors d LEFT JOIN visits v ON d.doctor_id = v.doctor_id GROUP BY d.doctor_id, d.first_name, d.last_name ORDER BY visits_count DESC;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 328,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "Топ-3 самых загруженных врачей",
+		"description": "Найдите трех врачей с наибольшим количеством посещений",
+		"solution": "SELECT d.first_name, d.last_name, COUNT(v.visit_id) as visits_count FROM doctors d JOIN visits v ON d.doctor_id = v.doctor_id GROUP BY d.doctor_id, d.first_name, d.last_name ORDER BY visits_count DESC LIMIT 3;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 329,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "Статистика по отделениям",
+		"description": "Для каждого отделения выведите количество посещений и уникальных пациентов",
+		"solution": "SELECT dep.dept_name, COUNT(v.visit_id) as visits_count, COUNT(DISTINCT v.patient_id) as unique_patients FROM departments dep LEFT JOIN visits v ON dep.dept_id = v.dept_id GROUP BY dep.dept_id, dep.dept_name;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 330,
+		"category": "aggregate",
+		"category_name": "Агрегация и GROUP BY",
+		"title": "Процентное соотношение",
+		"description": "Посчитайте процентное соотношение пациентов по группам крови",
+		"solution": "SELECT blood_type, COUNT(*) as count, ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM patients), 2) as percentage FROM patients WHERE blood_type IS NOT NULL GROUP BY blood_type ORDER BY count DESC;",
+		"difficulty": "advanced"
+	},
+	{
+		"id": 401,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "Подзапрос в WHERE",
+		"description": "Найдите пациентов, которые старше среднего возраста",
+		"solution": "SELECT * FROM patients WHERE birth_date < (SELECT AVG(birth_date) FROM patients);",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 402,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "Подзапрос с IN",
+		"description": "Найдите пациентов, у которых были посещения с температурой выше 38.0",
+		"solution": "SELECT * FROM patients WHERE patient_id IN (SELECT DISTINCT patient_id FROM visits v JOIN vitals vt ON v.visit_id = vt.visit_id WHERE vt.temperature > 38.0);",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 403,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "Подзапрос с EXISTS",
+		"description": "Найдите врачей, у которых были посещения с температурой выше 39.0",
+		"solution": "SELECT * FROM doctors d WHERE EXISTS (SELECT 1 FROM visits v JOIN vitals vt ON v.visit_id = vt.visit_id WHERE v.doctor_id = d.doctor_id AND vt.temperature > 39.0);",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 404,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "Подзапрос в SELECT",
+		"description": "Выведите пациентов и количество их посещений",
+		"solution": "SELECT p.*, (SELECT COUNT(*) FROM visits v WHERE v.patient_id = p.patient_id) as visits_count FROM patients p;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 405,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "Подзапрос в FROM",
+		"description": "Найдите среднее количество посещений по врачам",
+		"solution": "SELECT AVG(visits_count) as avg_visits FROM (SELECT doctor_id, COUNT(*) as visits_count FROM visits GROUP BY doctor_id) as doctor_visits;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 406,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "Коррелированный подзапрос",
+		"description": "Найдите пациентов, у которых больше посещений, чем в среднем",
+		"solution": "SELECT p.patient_id, p.first_name, p.last_name, COUNT(v.visit_id) as patient_visits FROM patients p LEFT JOIN visits v ON p.patient_id = v.patient_id GROUP BY p.patient_id, p.first_name, p.last_name HAVING COUNT(v.visit_id) > (SELECT AVG(visits_count) FROM (SELECT COUNT(*) as visits_count FROM visits GROUP BY patient_id) as avg_visits);",
+		"difficulty": "advanced"
+	},
+	{
+		"id": 407,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "ANY оператор",
+		"description": "Найдите врачей, у которых больше посещений, чем у любого терапевта",
+		"solution": "SELECT d.doctor_id, d.first_name, d.last_name, COUNT(v.visit_id) as visits_count FROM doctors d LEFT JOIN visits v ON d.doctor_id = v.doctor_id GROUP BY d.doctor_id, d.first_name, d.last_name HAVING COUNT(v.visit_id) > ANY (SELECT COUNT(v2.visit_id) FROM doctors d2 LEFT JOIN visits v2 ON d2.doctor_id = v2.doctor_id WHERE d2.specialization = 'Терапевт' GROUP BY d2.doctor_id);",
+		"difficulty": "advanced"
+	},
+	{
+		"id": 408,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "ALL оператор",
+		"description": "Найдите врачей, у которых больше посещений, чем у всех терапевтов",
+		"solution": "SELECT d.doctor_id, d.first_name, d.last_name, COUNT(v.visit_id) as visits_count FROM doctors d LEFT JOIN visits v ON d.doctor_id = v.doctor_id GROUP BY d.doctor_id, d.first_name, d.last_name HAVING COUNT(v.visit_id) > ALL (SELECT COUNT(v2.visit_id) FROM doctors d2 LEFT JOIN visits v2 ON d2.doctor_id = v2.doctor_id WHERE d2.specialization = 'Терапевт' GROUP BY d2.doctor_id);",
+		"difficulty": "advanced"
+	},
+	{
+		"id": 409,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "CTE простое",
+		"description": "Используя CTE, найдите пациентов старше 40 лет",
+		"solution": "WITH adult_patients AS (SELECT * FROM patients WHERE birth_date < '1980-01-01') SELECT * FROM adult_patients;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 410,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "CTE с агрегацией",
+		"description": "Используя CTE, найдите врачей с количеством посещений выше среднего",
+		"solution": "WITH doctor_visits AS (SELECT d.doctor_id, d.first_name, d.last_name, COUNT(v.visit_id) as visits_count FROM doctors d LEFT JOIN visits v ON d.doctor_id = v.doctor_id GROUP BY d.doctor_id, d.first_name, d.last_name) SELECT * FROM doctor_visits WHERE visits_count > (SELECT AVG(visits_count) FROM doctor_visits);",
+		"difficulty": "advanced"
+	},
+	{
+		"id": 411,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "Оконная функция ROW_NUMBER",
+		"description": "Пронумеруйте пациентов по дате рождения (самый старший - номер 1)",
+		"solution": "SELECT first_name, last_name, birth_date, ROW_NUMBER() OVER (ORDER BY birth_date) as age_rank FROM patients;",
+		"difficulty": "advanced"
+	},
+	{
+		"id": 412,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "Оконная функция RANK",
+		"description": "Проранжируйте врачей по количеству посещений",
+		"solution": "SELECT d.first_name, d.last_name, COUNT(v.visit_id) as visits_count, RANK() OVER (ORDER BY COUNT(v.visit_id) DESC) as rank FROM doctors d LEFT JOIN visits v ON d.doctor_id = v.doctor_id GROUP BY d.doctor_id, d.first_name, d.last_name;",
+		"difficulty": "advanced"
+	},
+	{
+		"id": 413,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "Оконная функция LAG",
+		"description": "Для каждого посещения покажите дату предыдущего посещения того же пациента",
+		"solution": "SELECT patient_id, visit_date, LAG(visit_date) OVER (PARTITION BY patient_id ORDER BY visit_date) as previous_visit FROM visits;",
+		"difficulty": "advanced"
+	},
+	{
+		"id": 414,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "Оконная функция LEAD",
+		"description": "Для каждого посещения покажите дату следующего посещения того же пациента",
+		"solution": "SELECT patient_id, visit_date, LEAD(visit_date) OVER (PARTITION BY patient_id ORDER BY visit_date) as next_visit FROM visits;",
+		"difficulty": "advanced"
+	},
+	{
+		"id": 415,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "UNION",
+		"description": "Объедините списки имен пациентов и врачей",
+		"solution": "SELECT first_name, last_name, 'patient' as type FROM patients UNION SELECT first_name, last_name, 'doctor' as type FROM doctors;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 416,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "INTERSECT",
+		"description": "Найдите имена, которые встречаются и у пациентов, и у врачей",
+		"solution": "SELECT first_name FROM patients INTERSECT SELECT first_name FROM doctors;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 417,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "EXCEPT",
+		"description": "Найдите имена пациентов, которые не встречаются среди врачей",
+		"solution": "SELECT first_name FROM patients EXCEPT SELECT first_name FROM doctors;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 418,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "CASE в ORDER BY",
+		"description": "Выведите пациентов, отсортировав так: сначала мужчины, потом женщины",
+		"solution": "SELECT * FROM patients ORDER BY CASE WHEN gender = 'Male' THEN 1 ELSE 2 END, last_name;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 419,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "CASE в GROUP BY",
+		"description": "Сгруппируйте пациентов по возрастным категориям",
+		"solution": "SELECT CASE WHEN EXTRACT(YEAR FROM age(birth_date)) < 18 THEN 'Дети' WHEN EXTRACT(YEAR FROM age(birth_date)) BETWEEN 18 AND 60 THEN 'Взрослые' ELSE 'Пожилые' END as age_category, COUNT(*) as count FROM patients GROUP BY age_category;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 420,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "COALESCE",
+		"description": "Выведите телефоны пациентов, а если нет телефона, укажите 'Нет телефона'",
+		"solution": "SELECT first_name, last_name, COALESCE(phone, 'Нет телефона') as phone FROM patients;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 421,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "NULLIF",
+		"description": "Замените пустые строки в email на NULL",
+		"solution": "SELECT first_name, last_name, NULLIF(email, '') as email FROM patients;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 422,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "GREATEST и LEAST",
+		"description": "Найдите максимальное и минимальное значение среди температуры и пульса",
+		"solution": "SELECT visit_id, GREATEST(temperature, heart_rate) as max_value, LEAST(temperature, heart_rate) as min_value FROM vitals;",
+		"difficulty": "advanced"
+	},
+	{
+		"id": 423,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "Форматирование дат",
+		"description": "Выведите дату посещения в формате 'ДД.ММ.ГГГГ'",
+		"solution": "SELECT visit_id, TO_CHAR(visit_date, 'DD.MM.YYYY') as formatted_date FROM visits;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 424,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "EXTRACT",
+		"description": "Извлеките год из даты посещения",
+		"solution": "SELECT visit_id, EXTRACT(YEAR FROM visit_date) as year FROM visits;",
+		"difficulty": "beginner"
+	},
+	{
+		"id": 425,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "DATE_TRUNC",
+		"description": "Округлите даты посещений до начала месяца",
+		"solution": "SELECT visit_id, DATE_TRUNC('month', visit_date) as month_start FROM visits;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 426,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "AGE функция",
+		"description": "Вычислите точный возраст пациентов",
+		"solution": "SELECT first_name, last_name, AGE(birth_date) as exact_age FROM patients;",
+		"difficulty": "intermediate"
+	},
+	{
+		"id": 427,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "CUBE",
+		"description": "Посчитайте количество пациентов по всем комбинациям пола и группы крови с итогами",
+		"solution": "SELECT gender, blood_type, COUNT(*) as count FROM patients GROUP BY CUBE(gender, blood_type);",
+		"difficulty": "advanced"
+	},
+	{
+		"id": 428,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "ROLLUP",
+		"description": "Посчитайте количество посещений по годам и месяцам с итогами",
+		"solution": "SELECT EXTRACT(YEAR FROM visit_date) as year, EXTRACT(MONTH FROM visit_date) as month, COUNT(*) as visits FROM visits GROUP BY ROLLUP(year, month);",
+		"difficulty": "advanced"
+	},
+	{
+		"id": 429,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "Группировка с фильтрацией",
+		"description": "Найдите специализации, где средний стаж врачей больше 5 лет",
+		"solution": "SELECT specialization, AVG(EXTRACT(YEAR FROM age(hire_date))) as avg_experience FROM doctors GROUP BY specialization HAVING AVG(EXTRACT(YEAR FROM age(hire_date))) > 5;",
+		"difficulty": "advanced"
+	},
+	{
+		"id": 430,
+		"category": "subquery",
+		"category_name": "Подзапросы и продвинутые конструкции",
+		"title": "Комбинированный запрос",
+		"description": "Найдите пациентов, у которых температура была выше средней температуры их врача",
+		"solution": "SELECT p.first_name, p.last_name, vt.temperature, d.first_name as doctor FROM patients p JOIN visits v ON p.patient_id = v.patient_id JOIN vitals vt ON v.visit_id = vt.visit_id JOIN doctors d ON v.doctor_id = d.doctor_id WHERE vt.temperature > (SELECT AVG(vt2.temperature) FROM visits v2 JOIN vitals vt2 ON v2.visit_id = vt2.visit_id WHERE v2.doctor_id = d.doctor_id);",
+		"difficulty": "advanced"
+	}
+]
